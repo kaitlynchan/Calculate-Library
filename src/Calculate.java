@@ -41,6 +41,73 @@ public class Calculate {
 		return answer;
 	}
 	
+	public static String foil (int a, int b, int c, int d, String n){
+		String answer = (a*c)+"n^2 + "+ ((a*d)+(b*c))+"n + "+(b*d);
+		return answer;
+	}
+	
+	public static boolean isDivisibleBy (int a, int b){
+		if (a % b == 0){
+			boolean answer = true;
+			return answer;
+		}
+		
+		else {
+			boolean answer = false;
+			return answer;
+		}
+		
+		
+	}
+	
+	public static double absValue (double a){
+		if (a < 0){
+			double answer = -a;
+			return answer;
+		}
+		
+		else {
+			double answer = a;
+			return answer;
+		}
+	}
+	
+	public static double max (int a, int b){
+		if (a > b){
+			double answer = a;
+			return answer;
+		}
+		
+		else {
+			double answer = b;
+			return answer;
+		}
+	}
+	
+	public static double max (int a, int b, int c){
+		
+		if (a > b && b > c){
+			
+			double answer = a;
+			return answer;				
+			
+			
+		}
+		
+		if (b > a && b > c){
+					
+					
+			double answer = b;
+			return answer;				
+					
+		}
+		
+	
+		else {
+			double answer = c;
+			return answer;
+		}
+	}
 	
 
 }
