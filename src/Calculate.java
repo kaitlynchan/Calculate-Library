@@ -120,9 +120,20 @@ public class Calculate {
 	}
 	
 	public static double round2 (double a){
-		double answer = ((a * 100) + (.5))/100;
-		return answer;
+		int answer = ((int)(a * 100));
+		
+		System.out.println("a is "+ a);
+		System.out.println("answer is " + answer);
+		System.out.println("(a * 100)-answer is " + ((a * 100)-answer));
+		
+		 if ((a * 100)-answer >= .5){
+			 double roundup = ((int)(a*100)+1)/(double)100;
+			 return roundup;		
+		 }
+		 
+		 else {
+			 double rounddown = (int)(a*100)/((double)100);
+			 return rounddown;
+		 }
 	}
-	
-
 }
