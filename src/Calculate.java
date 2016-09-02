@@ -86,27 +86,42 @@ public class Calculate {
 	
 	public static double max (int a, int b, int c){
 		
-		if (a > b && b > c){
+		if (a > b && a > c){
 			
 			double answer = a;
-			return answer;				
-			
-			
+			return answer;							
 		}
 		
 		if (b > a && b > c){
 					
 					
 			double answer = b;
-			return answer;				
-					
+			return answer;						
 		}
 		
-	
 		else {
 			double answer = c;
 			return answer;
 		}
+	}
+	
+	public static int min (int a, int b){
+		
+		if (a > b){
+			
+			int answer = a;
+			return answer;							
+		}
+		
+		else {
+			int answer = b;
+			return answer;
+		}
+	}
+	
+	public static double round2 (double a){
+		double answer = ((a * 100) + (.5))/100;
+		return answer;
 	}
 	
 
