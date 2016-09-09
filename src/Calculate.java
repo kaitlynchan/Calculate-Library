@@ -136,4 +136,45 @@ public class Calculate {
 			 return rounddown;
 		 }
 	}
+	
+	public static double exponent(double a, int b){
+		double answer = a;
+		for (int i = 1; i < b; i++){
+			answer *= a;	
+		}
+		
+		return answer;
+				
+	}
+	
+	public static int factorial(int a){
+		int answer = a;
+		for (int i = a-1; i > 0 ; i--){
+			answer = answer * i;	
+		}
+		
+		return answer;
+				
+	}
+	
+	public static boolean isPrime (int a){
+		
+		if (a < 0){
+			a = -a;
+		}
+		
+		boolean prime = true;
+		
+		for (int i = 2; i < a; i++){
+			if (Calculate.isDivisibleBy(a,i)== true){
+				
+				prime = false; 
+				
+			}
+			
+		}
+		return prime;
+				
+	}
 }
+
