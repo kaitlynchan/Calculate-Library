@@ -109,12 +109,12 @@ public class Calculate {
 		
 		if (a > b){
 			
-			int answer = a;
+			int answer = b;
 			return answer;							
 		}
 		
 		else {
-			int answer = b;
+			int answer = a;
 			return answer;
 		}
 	}
@@ -122,9 +122,6 @@ public class Calculate {
 	public static double round2 (double a){
 		int answer = ((int)(a * 100));
 		
-		System.out.println("a is "+ a);
-		System.out.println("answer is " + answer);
-		System.out.println("(a * 100)-answer is " + ((a * 100)-answer));
 		
 		 if ((a * 100)-answer >= .5){
 			 double roundup = ((int)(a*100)+1)/(double)100;
@@ -176,5 +173,43 @@ public class Calculate {
 		return prime;
 				
 	}
+	
+	public static int gcf (int a, int b){
+		int smaller = Calculate.min(a , b);
+		int bigger = (int) Calculate.max(a, b);
+		
+		while (bigger != smaller && bigger > 0){
+			bigger = bigger - smaller;
+		}
+		
+		if (bigger < 0){
+			bigger = -bigger;
+		}
+		return bigger;
+		
+	}
+	
+	public static double sqrt (double a){
+		
+		double x = 1;
+		
+		while (x*x > (a+.1) || x*x < (a-.1))
+		{
+		while ( x * x < a){
+			x = x + .01;
+		}
+		
+		if (x*x > a){
+			x = x - .01;
+		}
+		
+		}
+		
+		x = Calculate.round2(x);
+		return x;
+		
+	}
 }
+
+
 
