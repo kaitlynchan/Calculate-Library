@@ -47,6 +47,9 @@ public class Calculate {
 	}
 	
 	public static boolean isDivisibleBy (int a, int b){
+		if (a<0){
+			throw new IllegalArgumentException("n must be positive");
+		}
 		if (a % b == 0){
 			boolean answer = true;
 			return answer;
@@ -135,6 +138,9 @@ public class Calculate {
 	}
 	
 	public static double exponent(double a, int b){
+		if (a<0){
+			throw new IllegalArgumentException("n must be positive");
+		}
 		double answer = a;
 		for (int i = 1; i < b; i++){
 			answer *= a;	
@@ -144,8 +150,12 @@ public class Calculate {
 				
 	}
 	
-	public static int factorial(int a){
+		public static int factorial(int a){
+		if (a<0){
+			throw new IllegalArgumentException("n must be positive");
+		}
 		int answer = a;
+		
 		for (int i = a-1; i > 0 ; i--){
 			answer = answer * i;	
 		}
@@ -190,7 +200,9 @@ public class Calculate {
 	}
 	
 	public static double sqrt (double a){
-		
+		if (a<0){
+			throw new IllegalArgumentException("n must be positive");
+		}
 		double x = 1;
 		
 		while (x*x > (a+.1) || x*x < (a-.1))
@@ -207,6 +219,10 @@ public class Calculate {
 		
 		x = Calculate.round2(x);
 		return x;
+		
+	}
+	
+	public static String quadForm(int a, int b, int c){
 		
 	}
 }
