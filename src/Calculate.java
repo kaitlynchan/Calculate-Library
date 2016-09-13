@@ -32,12 +32,20 @@ public class Calculate {
 	}
 	
 	public static String toImproperFrac (int whole, int num, int denom){
+		if (denom==0){
+			throw new IllegalArgumentException("can't divide by 0");
+		}
 		String answer = (whole*denom+num + "/" + denom);
 		return answer;
 	}
 	
-	public static String toMixedNum (int whole, int num, int denom){
-		String answer = (whole*denom+num + "/" + denom);
+	public static String toMixedNum (int num, int denom){
+		if (denom==0){
+			throw new IllegalArgumentException("can't divide by 0");
+		}
+		int wholeNumber = num/denom;
+		int frac = denom%num;
+		String answer = (wholeNumber+" " + frac + "/" + denom);
 		return answer;
 	}
 	
@@ -47,8 +55,8 @@ public class Calculate {
 	}
 	
 	public static boolean isDivisibleBy (int a, int b){
-		if (a<0){
-			throw new IllegalArgumentException("n must be positive");
+		if (b==0){
+			throw new IllegalArgumentException("can't divide by 0");
 		}
 		if (a % b == 0){
 			boolean answer = true;
@@ -76,6 +84,10 @@ public class Calculate {
 	}
 	
 	public static double max (int a, int b){
+		if(a==b){
+			throw new IllegalArgumentException("can't be same number");
+		}
+		
 		if (a > b){
 			double answer = a;
 			return answer;
@@ -88,7 +100,9 @@ public class Calculate {
 	}
 	
 	public static double max (int a, int b, int c){
-		
+		if(a==b && b==c){
+			throw new IllegalArgumentException("can't be same number");
+		}
 		if (a > b && a > c){
 			
 			double answer = a;
@@ -109,7 +123,9 @@ public class Calculate {
 	}
 	
 	public static int min (int a, int b){
-		
+		if(a==b){
+			throw new IllegalArgumentException("can't be same number");
+		}
 		if (a > b){
 			
 			int answer = b;
@@ -138,8 +154,11 @@ public class Calculate {
 	}
 	
 	public static double exponent(double a, int b){
-		if (a<0){
+		if (b<0){
 			throw new IllegalArgumentException("n must be positive");
+		}
+		if (b==0){
+			return 1;
 		}
 		double answer = a;
 		for (int i = 1; i < b; i++){
@@ -155,6 +174,10 @@ public class Calculate {
 			throw new IllegalArgumentException("n must be positive");
 		}
 		int answer = a;
+		if (a==0){
+			answer = 1;
+		}
+		
 		
 		for (int i = a-1; i > 0 ; i--){
 			answer = answer * i;	
@@ -166,8 +189,8 @@ public class Calculate {
 	
 	public static boolean isPrime (int a){
 		
-		if (a < 0){
-			a = -a;
+		if (a < 3){
+			throw new IllegalArgumentException("n must 2 or greater");
 		}
 		
 		boolean prime = true;
@@ -185,6 +208,10 @@ public class Calculate {
 	}
 	
 	public static int gcf (int a, int b){
+		
+		if (a < 1 || b < 1){
+			throw new IllegalArgumentException("n must be positive");
+		}
 		int smaller = Calculate.min(a , b);
 		int bigger = (int) Calculate.max(a, b);
 		
@@ -224,8 +251,8 @@ public class Calculate {
 	
 	public static String quadForm(int a, int b, int c){
 		if (Calculate.discriminant(a,b,c) < 0){
-			String roots = "no real roots";
-			return roots; 
+			throw new IllegalArgumentException("no real roots");
+
 		}
 		
 		else if (Calculate.discriminant(a,b,c) == 0){
@@ -252,6 +279,3 @@ public class Calculate {
 	
 	
 }
-
-
-
