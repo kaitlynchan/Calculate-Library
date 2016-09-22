@@ -1,4 +1,8 @@
-
+/*Kaitlyn Chan
+ * Math Library Program (Methods)
+ * @9/18/16
+ * 1st Period
+ */
 public class Calculate {
 	
 	public static double square (double number){
@@ -54,132 +58,132 @@ public class Calculate {
 		return answer;
 	}
 	
-	public static boolean isDivisibleBy (int a, int b){
-		if (b==0){
+	public static boolean isDivisibleBy (int dividend, int divisor){
+		if (divisor==0){
 			throw new IllegalArgumentException("can't divide by 0");
 		}
-		if (a % b == 0){
-			boolean answer = true;
-			return answer;
-		}
-		
-		else {
-			boolean answer = false;
-			return answer;
-		}
-		
-		
-	}
-	
-	public static double absValue (double a){
-		if (a < 0){
-			double answer = -a;
-			return answer;
-		}
-		
-		else {
-			double answer = a;
-			return answer;
-		}
-	}
-	
-	public static double max (int a, int b){
-		if(a==b){
-			throw new IllegalArgumentException("can't be same number");
-		}
-		
-		if (a > b){
-			double answer = a;
-			return answer;
-		}
-		
-		else {
-			double answer = b;
-			return answer;
-		}
-	}
-	
-	public static double max (int a, int b, int c){
-		if(a==b && b==c){
-			throw new IllegalArgumentException("can't be same number");
-		}
-		if (a > b && a > c){
+		if (dividend % divisor == 0){
 			
-			double answer = a;
+			return true;
+		}
+		
+		else {
+			
+			return false;
+		}
+		
+		
+	}
+	
+	public static double absValue (double value){
+		if (value < 0){
+			double answer = -value;
+			return answer;
+		}
+		
+		else {
+			double answer = value;
+			return answer;
+		}
+	}
+	
+	public static double max (int num1, int num2){
+		if(num1==num2){
+			throw new IllegalArgumentException("can't be same number");
+		}
+		
+		if (num1 > num2){
+			double answer = num1;
+			return answer;
+		}
+		
+		else {
+			double answer = num2;
+			return answer;
+		}
+	}
+	
+	public static double max (int num1, int num2, int num3){
+		if(num1==num2 && num2==num3){
+			throw new IllegalArgumentException("can't be same number");
+		}
+		if (num1 > num2 && num1 > num3){
+			
+			double answer = num1;
 			return answer;							
 		}
 		
-		if (b > a && b > c){
+		if (num2 > num1 && num2 > num3){
 					
 					
-			double answer = b;
+			double answer = num2;
 			return answer;						
 		}
 		
 		else {
-			double answer = c;
+			double answer = num3;
 			return answer;
 		}
 	}
 	
-	public static int min (int a, int b){
-		if(a==b){
+	public static int min (int num1, int num2){
+		if(num1==num2){
 			throw new IllegalArgumentException("can't be same number");
 		}
-		if (a > b){
+		if (num1 > num2){
 			
-			int answer = b;
+			int answer = num2;
 			return answer;							
 		}
 		
 		else {
-			int answer = a;
+			int answer = num1;
 			return answer;
 		}
 	}
 	
-	public static double round2 (double a){
-		int answer = ((int)(a * 100));
+	public static double round2 (double number){
+		int firststep = ((int)(number * 100));
 		
 		
-		 if ((a * 100)-answer >= .5){
-			 double roundup = ((int)(a*100)+1)/(double)100;
+		 if ((number * 100)-firststep >= .5){
+			 double roundup = ((int)(number*100)+1)/(double)100;
 			 return roundup;		
 		 }
 		 
 		 else {
-			 double rounddown = (int)(a*100)/((double)100);
+			 double rounddown = (int)(number*100)/((double)100);
 			 return rounddown;
 		 }
 	}
 	
-	public static double exponent(double a, int b){
-		if (b<0){
-			throw new IllegalArgumentException("n must be positive");
+	public static double exponent(double base, int exponent){
+		if (exponent<0){
+			throw new IllegalArgumentException("exponent must be positive");
 		}
-		if (b==0){
+		if (exponent==0){
 			return 1;
 		}
-		double answer = a;
-		for (int i = 1; i < b; i++){
-			answer *= a;	
+		double answer = base;
+		for (int i = 1; i < exponent; i++){
+			answer *= base;	
 		}
 		
 		return answer;
 				
 	}
 	
-		public static int factorial(int a){
-		if (a<0){
-			throw new IllegalArgumentException("n must be positive");
+		public static int factorial(int num){
+		if (num<0){
+			throw new IllegalArgumentException("number must be positive");
 		}
-		int answer = a;
-		if (a==0){
+		int answer = num;
+		if (num==0){
 			answer = 1;
 		}
 		
 		
-		for (int i = a-1; i > 0 ; i--){
+		for (int i = num-1; i > 0 ; i--){
 			answer = answer * i;	
 		}
 		
@@ -187,16 +191,16 @@ public class Calculate {
 				
 	}
 	
-	public static boolean isPrime (int a){
+	public static boolean isPrime (int num){
 		
-		if (a < 3){
+		if (num < 3){
 			throw new IllegalArgumentException("n must 2 or greater");
 		}
 		
 		boolean prime = true;
 		
-		for (int i = 2; i < a; i++){
-			if (Calculate.isDivisibleBy(a,i)== true){
+		for (int i = 2; i < num; i++){
+			if (Calculate.isDivisibleBy(num,i)== true){
 				
 				prime = false; 
 				
@@ -207,13 +211,13 @@ public class Calculate {
 				
 	}
 	
-	public static int gcf (int a, int b){
+	public static int gcf (int num1, int num2){
 		
-		if (a < 1 || b < 1){
+		if (num1 < 1 || num2 < 1){
 			throw new IllegalArgumentException("n must be positive");
 		}
-		int smaller = Calculate.min(a , b);
-		int bigger = (int) Calculate.max(a, b);
+		int smaller = Calculate.min(num1 , num2);
+		int bigger = (int) Calculate.max(num1, num2);
 		
 		while (bigger != smaller && bigger > 0){
 			bigger = bigger - smaller;
@@ -226,26 +230,26 @@ public class Calculate {
 		
 	}
 	
-	public static double sqrt (double a){
-		if (a<0){
+	public static double sqrt (double num){
+		if (num<0){
 			throw new IllegalArgumentException("n must be positive");
 		}
-		double x = 1;
+		double root = 1;
 		
-		while (x*x > (a+.1) || x*x < (a-.1))
+		while (root*root > (num+.1) || root*root < (num-.1))
 		{
-		while ( x * x < a){
-			x = x + .01;
+		while ( root * root < num){
+			root = root + .01;
 		}
 		
-		if (x*x > a){
-			x = x - .01;
+		if (root*root > num){
+			root = root - .01;
 		}
 		
 		}
 		
-		x = Calculate.round2(x);
-		return x;
+		root = Calculate.round2(root);
+		return root;
 		
 	}
 	
