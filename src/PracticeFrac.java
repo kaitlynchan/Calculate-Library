@@ -57,17 +57,23 @@ public class PracticeFrac {
 	        	operand2 = input.substring(input.indexOf("/ ")+2);
 	        	}
 	   
-	    	int parsedOne = PracticeFrac.parse(operand);
-	    	int parsedTwo = PracticeFrac.parse(operand2);
-	    	return ("numerator:" + parsedTwo);
+	    	int [] parsedOne = PracticeFrac.parse(operand);
+	    	int numeratorOne =  parsedOne [1];
+	    	int denominatorOne = parsedOne [2];
+	    	int wholeNumberOne = parsedOne [3];
+	    	int [] parsedTwo = PracticeFrac.parse(operand2);
+	    	int numeratorTwo =  parsedTwo [1];
+	    	int denominatorTwo = parsedTwo [2];
+	    	int wholeNumberTwo = parsedTwo [3];
+	    	
 	    	//returns parsed components of operand2
-	        //return "whole:" + wholeNumber2 + " numerator:" + numerator2 + " denominator:" + denominator2;
+	        return "whole:" + wholeNumberTwo + " numerator:" + numeratorTwo + " denominator:" + denominatorTwo;
 	    }
 
 	    // TODO: Fill in the space below with any helper methods that you think you will need
 	    
-	    public static int parse(String operand){
-	    	
+	    public static int[] parse(String operand){
+	           
 	    	int numerator;
 	    	int denominator;
 	    	int wholeNumber;
@@ -91,7 +97,12 @@ public class PracticeFrac {
 	    			wholeNumber = Integer.parseInt(operand.substring(0,operand.indexOf("_")));
 	    		}
 	    	
-	    	return (numerator);
+	    	int[] answers = new int[3];
+	    	answers [1] = numerator;
+	    	answers [2] = denominator;
+	    	answers [3] = wholeNumber;
+	    	
+	    	return answers;
 	    }
 	    
 	}
